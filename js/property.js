@@ -166,6 +166,9 @@ function renderPropertyDetails(property, container) {
         </div>
         <div class="property-meta-actions">
           ${videoButtonHtml}
+          <a class="action-btn" href="#reviews" id="addReviewTopBtn">
+            Add Review
+          </a>
           <button class="action-btn" id="shareStayBtn">
             🔗 Share
           </button>
@@ -226,7 +229,7 @@ function renderPropertyDetails(property, container) {
         </div>
         
         <!-- Reviews Section -->
-        <div class="reviews-section">
+        <div class="reviews-section" id="reviews">
           <h2 class="reviews-header">★ ${property.rating} · ${property.reviewCount} Guest Reviews</h2>
           
           <div class="rating-bars">
@@ -583,6 +586,8 @@ document.getElementById('videoModalClose')?.addEventListener('click', () => {
   }
   modal?.classList.add('hidden');
 });
+
+
 
 
 
