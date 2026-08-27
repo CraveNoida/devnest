@@ -2857,3 +2857,16 @@ body.mobile-menu-open .mobile-menu {
     grid-template-columns: 1fr;
   }
 }
+
+.card-actions-row {
+  display: flex;
+  gap: 0.65rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.card-actions-row .btn {
+  flex: 1 1 120px;
+  justify-content: center;
+}
+

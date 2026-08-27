@@ -237,7 +237,10 @@ export function renderPropertyCard(property) {
         </div>
         <p class="card-location">${property.location} · ${property.propertyType}</p>
         <p class="card-price"><strong>${priceLabel}</strong></p>
-        <a href="index.html#booking" class="btn btn-primary btn-small room-book-btn" data-room="${property.id}">Book Now</a>
+        <div class="card-actions-row">
+          <a href="index.html#booking" class="btn btn-primary btn-small room-book-btn" data-room="${property.id}">Book Now</a>
+          <a href="property.html?id=${property.id}#reviews" class="btn btn-outline btn-small">Review</a>
+        </div>
       </div>
     </article>
   `;
@@ -296,4 +299,6 @@ document.body.addEventListener('click', (e) => {
     }
   }
 });
+
+
 
