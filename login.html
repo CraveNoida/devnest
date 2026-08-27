@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In - DevNest Stays</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <header>
+      <nav class="navbar container">
+        <div class="logo-wrap">
+          <a href="index.html" class="logo">DevNest Stays</a>
+          <span class="logo-badge">Direct Booking</span>
+        </div>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="search.html">Rooms</a></li>
+          <li><a href="trips.html">My Bookings</a></li>
+          <li><a href="https://share.google/8AvyayTe03vYw3nqk" target="_blank">Location</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a href="tel:+917042341195" class="nav-phone-btn"><span>Call</span> +91 7042341195</a>
+        </div>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html"><span>Home</span> <span>></span></a>
+        <a href="search.html"><span>Rooms</span> <span>></span></a>
+        <a href="trips.html"><span>My Bookings</span> <span>></span></a>
+      </div>
+    </header>
+
+    <main class="container" style="display: flex; justify-content: center; padding-top: 4rem; padding-bottom: 4rem;">
+        <div class="auth-container" style="width: 100%; max-width: 440px; padding: 2rem; border: 1px solid var(--border-color, #e2e8f0); border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+            <h1 style="text-align: center; margin-bottom: 0.5rem;">Welcome Back</h1>
+            <p style="text-align: center; color: var(--text-muted, #64748b); margin-bottom: 2rem;">Log in to manage your bookings</p>
+            
+            <form id="loginForm">
+                <div class="form-group" style="margin-bottom: 1.5rem;">
+                    <label for="loginEmail" class="form-label" style="display: block; margin-bottom: 0.5rem; font-weight: 600; font-size: 0.88rem;">Email</label>
+                    <input type="email" id="loginEmail" class="form-input" style="width: 100%; padding: 0.85rem 1rem; border: 1px solid var(--color-border); border-radius: var(--radius-md); box-sizing: border-box;" placeholder="name@example.com" required>
+                    <div id="loginEmailError" class="form-error" style="color: #dc2626; font-size: 0.85rem; margin-top: 0.35rem; display: none;"></div>
+                </div>
+                
+                <div class="form-group" style="margin-bottom: 1.5rem;">
+                    <label for="loginPassword" class="form-label" style="display: block; margin-bottom: 0.5rem; font-weight: 600; font-size: 0.88rem;">Password</label>
+                    <div style="position: relative;">
+                        <input type="password" id="loginPassword" class="form-input" style="width: 100%; padding: 0.85rem 1rem; border: 1px solid var(--color-border); border-radius: var(--radius-md); box-sizing: border-box;" placeholder="Your password" required>
+                    </div>
+                    <div id="loginPasswordError" class="form-error" style="color: #dc2626; font-size: 0.85rem; margin-top: 0.35rem; display: none;"></div>
+                </div>
+                
+                <div id="loginGeneralError" class="form-error" style="color: #dc2626; font-size: 0.85rem; margin-bottom: 1.25rem; text-align: center; display: none;"></div>
+                
+                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.95rem; font-weight: 700; margin-bottom: 1.5rem; font-size: 1rem;">Log In</button>
+                
+                <p style="text-align: center; font-size: 0.9rem; color: var(--color-gray-dark);">Don't have an account? <a href="signup.html" style="color: var(--color-black); text-decoration: underline; font-weight: 600;">Sign up</a></p>
+            </form>
+        </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <div class="logo-wrap" style="margin-bottom: 0.75rem;">
+              <span class="logo">DevNest Stays</span>
+              <span class="logo-badge">Direct</span>
+            </div>
+            <p class="footer-brand-bio">One verified DevNest location offering a private 1RK studio and a 1BHK apartment for direct booking.</p>
+          </div>
+          <div class="footer-col">
+            <h4>Rooms</h4>
+            <ul>
+              <li><a href="property.html?id=prop01">1RK Studio - ₹2,200/night</a></li>
+              <li><a href="property.html?id=prop02">1BHK Apartment - ₹2,600-₹2,800/night</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Book Direct</h4>
+            <ul>
+              <li><a href="https://wa.me/917042341195" target="_blank">WhatsApp Booking</a></li>
+              <li><a href="tel:+917042341195">Call Host</a></li>
+              <li><a href="mailto:Devneststays@gmail.com">Email DevNest</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Connect</h4>
+            <ul>
+              <li><a href="https://www.instagram.com/devnest.stays" target="_blank">Instagram @devnest.stays</a></li>
+              <li><a href="https://share.google/8AvyayTe03vYw3nqk" target="_blank">Google Maps Location</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2026 DevNest Stays. All rights reserved.</span>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/devnest.stays" target="_blank" aria-label="Instagram">IG</a>
+            <a href="https://wa.me/917042341195" target="_blank" aria-label="WhatsApp">WA</a>
+            <a href="mailto:Devneststays@gmail.com" aria-label="Email">Mail</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <div class="toast-container" id="toastContainer"></div>
+    
+    <script type="module" src="js/app.js"></script>
+    <script type="module" src="js/auth.js"></script>
+</body>
+</html>

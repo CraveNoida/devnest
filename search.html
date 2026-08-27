@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rooms - DevNest Stays</title>
+  <meta name="description" content="Choose between DevNest Stays 1RK studio and 1BHK apartment at one verified location.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Top Sticky Navigation -->
+  <header>
+    <nav class="navbar container">
+      <div class="logo-wrap">
+        <a href="index.html" class="logo">
+          DevNest Stays
+        </a>
+        <span class="logo-badge">Luxury Stays</span>
+      </div>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="search.html" class="active">Rooms</a></li>
+        <li><a href="wishlist.html">Wishlist</a></li>
+        <li><a href="trips.html">My Bookings</a></li>
+        <li><a href="https://share.google/8AvyayTe03vYw3nqk" target="_blank">Location</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="tel:+917042341195" class="nav-phone-btn">
+          <span>📞</span> +91 7042341195
+        </a>
+        <a href="https://wa.me/917042341195" target="_blank" class="nav-book-btn" style="background: var(--color-whatsapp); color: #fff;">
+          WhatsApp Us
+        </a>
+      </div>
+
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <!-- Mobile Dropdown Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html"><span>🏠 Home</span> <span>→</span></a>
+      <a href="search.html"><span>Rooms</span> <span>→</span></a>
+      <a href="wishlist.html"><span>❤️ Saved Wishlist</span> <span>→</span></a>
+      <a href="trips.html"><span>🧳 My Bookings</span> <span>→</span></a>
+      <a href="https://share.google/8AvyayTe03vYw3nqk" target="_blank"><span>Google Maps Location</span> <span>→</span></a>
+      <a href="tel:+917042341195"><span>📞 Call: +91 7042341195</span> <span>→</span></a>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Compact Top Search Bar -->
+    <form id="searchForm" class="search-bar" style="margin: 2rem auto 1rem; max-width: 100%;">
+      <div class="search-field">
+        <label for="searchInput">LOCATION</label>
+        <input type="text" id="searchInput" value="DevNest Stays, Delhi NCR" placeholder="DevNest Stays location">
+      </div>
+      <div class="search-field">
+        <label for="checkinInput">CHECK IN</label>
+        <input type="date" id="checkinInput">
+      </div>
+      <div class="search-field">
+        <label for="checkoutInput">CHECK OUT</label>
+        <input type="date" id="checkoutInput">
+      </div>
+      <div class="search-field">
+        <label for="guestsInput">GUESTS</label>
+        <input type="number" id="guestsInput" placeholder="Guests" min="1" max="10" value="1">
+      </div>
+      <button type="submit" class="search-btn" aria-label="Update search">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.6"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      </button>
+    </form>
+
+    <div class="search-layout">
+      <!-- Left Filters Sidebar -->
+      <aside class="filters-sidebar">
+        <div class="flex-between" style="margin-bottom: 1.5rem;">
+          <h2 style="font-size: 1.25rem; font-weight: 700;">Filters</h2>
+          <button id="clearFiltersBtn" class="btn btn-outline btn-small" style="padding: 4px 12px; font-size: 0.75rem;">
+            Reset All
+          </button>
+        </div>
+
+        <!-- Property Type Filter -->
+        <div class="filter-group">
+          <label class="filter-label">Property Type</label>
+          <label class="filter-checkbox"><input type="checkbox" name="propType" value="Studio"> 1RK Studio Suite</label>
+          <label class="filter-checkbox"><input type="checkbox" name="propType" value="Apartment"> 1BHK Apartment</label>
+          <p style="color: var(--color-gray-dark); font-size: 0.88rem; line-height: 1.6;">Both options are at the same DevNest Stays location.</p>
+        </div>
+
+        <!-- Price Range Filter -->
+        <div class="filter-group">
+          <label class="filter-label">Price per Night (₹)</label>
+          <div class="flex" style="gap: 10px;">
+            <input type="number" id="minPrice" class="form-input" placeholder="Min ₹" style="padding: 8px 12px;">
+            <input type="number" id="maxPrice" class="form-input" placeholder="Max ₹" style="padding: 8px 12px;">
+          </div>
+        </div>
+
+        <!-- Bedrooms Filter -->
+        <div class="filter-group">
+          <label class="filter-label" for="bedroomsFilter">Bedrooms</label>
+          <select id="bedroomsFilter" class="form-input" style="padding: 8px 12px;">
+            <option value="">Any Bedrooms</option>
+            <option value="1">1+ Bedroom</option>
+            <option value="2">2+ Bedrooms</option>
+            <option value="3">3+ Bedrooms</option>
+          </select>
+        </div>
+
+        <!-- Rating Filter -->
+        <div class="filter-group">
+          <label class="filter-label" for="ratingFilter">Guest Rating</label>
+          <select id="ratingFilter" class="form-input" style="padding: 8px 12px;">
+            <option value="Any">Any Rating</option>
+            <option value="4.8">4.8+ Top Rated</option>
+            <option value="4.9">4.9+ Superhost Only</option>
+          </select>
+        </div>
+
+        <!-- Amenities Filter -->
+        <div class="filter-group">
+          <label class="filter-label">Amenities</label>
+          <label class="filter-checkbox"><input type="checkbox" name="amenity" value="High-Speed WiFi"> High-Speed WiFi</label>
+          <label class="filter-checkbox"><input type="checkbox" name="amenity" value="Air Conditioning"> Air Conditioning</label>
+          <label class="filter-checkbox"><input type="checkbox" name="amenity" value="Kitchen"> Kitchen / Kitchenette</label>
+          <label class="filter-checkbox"><input type="checkbox" name="amenity" value="Smart TV"> Smart TV</label>
+          <label class="filter-checkbox"><input type="checkbox" name="amenity" value="Direct Host Support"> Direct Host Support</label>
+        </div>
+      </aside>
+
+      <!-- Right Stays Grid -->
+      <section class="results-container">
+        <div class="results-header">
+          <div class="results-count" id="resultsCount">Loading stays...</div>
+          <div class="flex" style="gap: 10px; align-items: center;">
+            <label for="sortSelect" style="font-size: 0.85rem; font-weight: 600; color: var(--color-gray-dark);">Sort by:</label>
+            <select id="sortSelect" class="sort-select">
+              <option value="">Recommended</option>
+              <option value="price_asc">Price: Low to High</option>
+              <option value="price_desc">Price: High to Low</option>
+              <option value="rating_desc">Highest Rated</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="property-grid" id="searchResults">
+          <!-- Dynamically populated by js/search.js -->
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Floating WhatsApp Quick Button -->
+  <a href="https://wa.me/917042341195?text=Hi%20DevNest%20Stays,%20I'm%20looking%20for%20a%20stay" target="_blank" class="floating-whatsapp" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+    <span>Chat with Host</span>
+  </a>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="logo-wrap" style="margin-bottom: 0.75rem;">
+            <span class="logo">DevNest Stays</span>
+            <span class="logo-badge">Luxury</span>
+          </div>
+          <p class="footer-brand-bio">
+            Curated vacation rentals, 1RK designer studios & executive 1BHK suites designed for the modern discerning traveler.
+          </p>
+          <div class="footer-contact-info">
+            <span>📞 Phone: <a href="tel:+917042341195">+91 7042341195</a></span>
+            <span>✉ Email: <a href="mailto:Devneststays@gmail.com">Devneststays@gmail.com</a></span>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="property.html?id=prop01">1RK Studio - ₹2,200/night</a></li>
+            <li><a href="property.html?id=prop02">1BHK Apartment - ₹2,600-₹2,800/night</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Direct Services</h4>
+          <ul>
+            <li><a href="https://wa.me/917042341195" target="_blank">Instant WhatsApp Booking</a></li>
+            <li><a href="wishlist.html">Saved Wishlist</a></li>
+            <li><a href="trips.html">My Reservations</a></li>
+            <li><a href="host.html">List Your Property</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="https://www.instagram.com/devnest.stays" target="_blank">Instagram @devnest.stays</a></li>
+            <li><a href="https://share.google/8AvyayTe03vYw3nqk" target="_blank">Google Maps Location</a></li>
+            <li><a href="tel:+917042341195">Customer Support</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          <span>© 2026 DevNest Stays. All rights reserved.</span>
+        </div>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/devnest.stays" target="_blank" aria-label="Instagram">📷</a>
+          <a href="https://wa.me/917042341195" target="_blank" aria-label="WhatsApp">💬</a>
+          <a href="mailto:Devneststays@gmail.com" aria-label="Email">✉</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast-container" id="toastContainer"></div>
+  
+  <script type="module" src="js/app.js"></script>
+  <script type="module" src="js/search.js"></script>
+</body>
+</html>

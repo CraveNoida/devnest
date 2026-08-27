@@ -1,0 +1,370 @@
+/* ==========================================================================
+   DEVNEST STAYS - RESPONSIVE STYLESHEET
+   Mobile-First & Breakpoint Adjustments
+   ========================================================================== */
+
+/* ===== TABLET BREAKPOINT (max-width: 1024px) ===== */
+@media (max-width: 1024px) {
+  .hero-title {
+    font-size: 2.8rem;
+  }
+  
+  .signature-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .property-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .destinations-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .property-layout {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .property-gallery {
+    grid-template-rows: 150px 150px;
+  }
+  
+  .search-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .filters-sidebar {
+    border-right: none;
+    border-bottom: 1px solid var(--color-border);
+    padding-right: 0;
+    padding-bottom: 2rem;
+  }
+  
+  .booking-page-layout {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .cta-section {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  
+  .cta-image {
+    height: 320px;
+  }
+  
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+
+  .dn-hero {
+    min-height: 720px;
+    padding: 7rem 0 3.5rem;
+  }
+
+  .dn-gallery {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 260px 220px 220px;
+  }
+
+  .dn-gallery-large {
+    grid-column: 1 / -1;
+  }
+
+  .dn-location-section,
+  .dn-comfort-strip,
+  .dn-booking-layout {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .dn-booking-layout {
+    gap: 2.5rem;
+  }
+
+  .dn-booking-copy {
+    position: static;
+  }
+}
+
+/* ===== MOBILE BREAKPOINT (max-width: 768px) ===== */
+@media (max-width: 768px) {
+  .nav-links, .nav-actions {
+    display: none;
+  }
+  
+  .mobile-menu-btn {
+    display: flex;
+  }
+  
+  .hero {
+    padding: 3rem 0 2rem;
+  }
+  
+  .hero-title {
+    font-size: 2.2rem;
+    line-height: 1.2;
+  }
+  
+  .hero-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+  }
+  
+  .search-bar {
+    flex-direction: column;
+    border-radius: var(--radius-lg);
+    padding: 12px;
+    gap: 10px;
+  }
+  
+  .search-field {
+    width: 100%;
+    border-right: none !important;
+    border-bottom: 1px solid var(--color-border-subtle);
+    padding: 8px 6px;
+  }
+  
+  .search-btn {
+    width: 100%;
+    border-radius: var(--radius-md);
+    height: 48px;
+    font-size: 0.95rem;
+    font-weight: 700;
+  }
+  
+  .search-btn svg {
+    margin-right: 6px;
+  }
+  
+  .trust-bar {
+    gap: 1.25rem;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding: 1.25rem 0;
+  }
+  
+  .signature-media {
+    height: 240px;
+  }
+  
+  .signature-body {
+    padding: 1.25rem;
+  }
+  
+  .signature-title {
+    font-size: 1.3rem;
+  }
+  
+  .property-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .destinations-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  
+  .property-gallery {
+    grid-template-columns: 1fr;
+    grid-template-rows: 240px;
+    height: 240px;
+  }
+  
+  .gallery-item {
+    display: none;
+  }
+  
+  .gallery-main {
+    grid-row: 1 / 2;
+    height: 100%;
+  }
+  
+  .rating-bars {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .stats-section {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 3rem 0;
+  }
+  
+  .trip-card {
+    flex-direction: column;
+  }
+  
+  .trip-card-img {
+    width: 100%;
+    height: 180px;
+  }
+  
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+  }
+  
+  .floating-whatsapp {
+    bottom: 20px;
+    right: 20px;
+    width: 54px;
+    height: 54px;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .floating-whatsapp span {
+    display: none;
+  }
+  
+  .confirmation-actions {
+    flex-direction: column;
+  }
+
+  .dn-hero {
+    min-height: auto;
+    padding: 5.25rem 0 2.5rem;
+  }
+
+  .dn-hero-media {
+    min-height: 100%;
+  }
+
+  .dn-hero-media img {
+    object-position: 58% 50%;
+  }
+
+  .dn-hero h1 {
+    font-size: 3.15rem;
+    max-width: 95%;
+  }
+
+  .dn-hero p {
+    font-size: 1rem;
+    max-width: 95%;
+  }
+
+  .dn-hero-inner {
+    width: 88%;
+  }
+
+  .dn-hero-stats {
+    display: grid;
+    width: 100%;
+    border-radius: 18px;
+    margin-top: 2.4rem;
+  }
+
+  .dn-hero-stats span {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .dn-hero-stats > span + span {
+    border-left: 0;
+    border-top: 1px solid rgba(255,255,255,0.2);
+  }
+
+  .dn-hero-actions {
+    gap: 0.75rem;
+  }
+
+  .dn-hero-actions .btn {
+    min-width: 0;
+    width: 100%;
+    min-height: 58px;
+  }
+
+  .dn-gallery,
+  .dn-location-section,
+  .dn-comfort-strip,
+  .dn-booking-layout,
+  .dn-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dn-booking-section {
+    padding: 3.5rem 0;
+  }
+
+  .dn-booking-form {
+    padding: 1.25rem;
+  }
+
+  .dn-gallery {
+    grid-template-rows: repeat(4, 220px);
+    padding: 3.5rem 0 3rem;
+  }
+
+  .dn-contact-stack a {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .dn-contact-stack span {
+    text-align: left;
+  }
+}
+
+/* ===== SMALL MOBILE BREAKPOINT (max-width: 480px) ===== */
+@media (max-width: 480px) {
+  .dn-hero h1 {
+    font-size: 2.35rem;
+    line-height: 1.15;
+  }
+
+  .dn-hero p {
+    font-size: 0.95rem;
+  }
+
+  .dn-hero-stats span {
+    padding: 1rem 1.15rem;
+    font-size: 0.88rem;
+  }
+
+  .dn-gallery {
+    grid-template-rows: repeat(4, 180px);
+  }
+
+  .toast-container {
+    top: 12px;
+    right: 12px;
+    left: 12px;
+  }
+
+  .toast {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .card-img-wrap {
+    aspect-ratio: 16 / 10;
+  }
+
+  .card-body {
+    padding: 1rem;
+  }
+
+  .signature-price {
+    font-size: 1.25rem;
+  }
+
+  .btn {
+    min-height: 44px;
+  }
+}
