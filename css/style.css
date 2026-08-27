@@ -62,7 +62,8 @@ body {
 }
 
 body.is-loading {
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 img {
@@ -3060,7 +3061,8 @@ html {
   }
 
   body {
-    overscroll-behavior-y: contain;
+    overflow-y: auto !important;
+    overscroll-behavior-y: auto;
     -webkit-overflow-scrolling: touch;
   }
 
@@ -3098,5 +3100,31 @@ html {
 
   .dn-hero-media img {
     transform: none !important;
+  }
+}
+
+/* 20260828 force scroll unlock */
+html,
+body {
+  min-height: 100%;
+  height: auto;
+  overflow-y: auto;
+}
+
+body.is-loading {
+  overflow-y: auto !important;
+}
+
+.site-loader {
+  pointer-events: none !important;
+}
+
+@media (max-width: 768px) {
+  html,
+  body {
+    height: auto !important;
+    min-height: 100% !important;
+    overflow-y: auto !important;
+    touch-action: pan-y;
   }
 }

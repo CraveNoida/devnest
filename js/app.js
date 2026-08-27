@@ -85,6 +85,7 @@ export function initScrollReveal() {
 }
 
 export function initPageLoader() {
+  document.body.classList.remove('is-loading');
   const loader = document.getElementById('siteLoader');
   if (!loader) return;
 
@@ -102,7 +103,7 @@ export function initPageLoader() {
     return;
   }
 
-  document.body.classList.add('is-loading');
+  document.body.classList.remove('is-loading');
 
   const hideLoader = () => {
     window.setTimeout(() => {
