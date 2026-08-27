@@ -2880,3 +2880,173 @@ body.mobile-menu-open .mobile-menu {
   margin-bottom: 1.25rem;
 }
 
+
+
+/* 20260828 stronger mobile layout fix */
+.price-photo-section {
+  padding: 4rem 0;
+}
+
+.price-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.price-photo-grid img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+}
+
+@media (max-width: 768px) {
+  html,
+  body {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    max-width: 100%;
+  }
+
+  .container,
+  .navbar,
+  .dn-hero-inner {
+    width: calc(100% - 24px) !important;
+    max-width: calc(100% - 24px) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .dn-hero {
+    min-height: auto !important;
+    padding: 4.25rem 0 2rem !important;
+  }
+
+  .dn-hero h1 {
+    font-size: 2.1rem !important;
+    line-height: 1.12 !important;
+    max-width: 100% !important;
+  }
+
+  .dn-hero p {
+    font-size: 0.95rem !important;
+    max-width: 100% !important;
+  }
+
+  .dn-hero-actions,
+  .dn-hero-stats,
+  .signature-grid,
+  .property-grid,
+  .dn-gallery,
+  .dn-booking-layout,
+  .dn-location-section,
+  .dn-comfort-strip,
+  .footer-grid,
+  .review-form-grid,
+  .dn-form-grid,
+  .date-inputs,
+  .price-photo-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+  }
+
+  .dn-hero-actions .btn,
+  .card-actions-row .btn,
+  .property-meta-actions .action-btn,
+  .dn-booking-form,
+  .booking-card,
+  .review-form,
+  input,
+  select,
+  textarea {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .section-header,
+  .property-meta-row,
+  .property-meta-actions,
+  .card-header,
+  .footer-bottom {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.85rem !important;
+  }
+
+  .section-title,
+  .property-title-header h1,
+  .card-title,
+  .footer-col,
+  .footer-brand-bio {
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  .section-title,
+  .property-title-header h1 {
+    font-size: 1.75rem !important;
+    line-height: 1.16 !important;
+  }
+
+  .dn-gallery {
+    grid-template-rows: none !important;
+  }
+
+  .dn-gallery > div,
+  .price-photo-grid img {
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  .property-gallery {
+    width: 100% !important;
+    height: 220px !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  .gallery-item {
+    display: none !important;
+  }
+
+  .booking-card,
+  .dn-booking-form,
+  .review-form {
+    padding: 1rem !important;
+  }
+
+  .floating-whatsapp {
+    right: 14px !important;
+    bottom: 14px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .container,
+  .navbar,
+  .dn-hero-inner {
+    width: calc(100% - 18px) !important;
+    max-width: calc(100% - 18px) !important;
+  }
+
+  .dn-hero h1 {
+    font-size: 1.9rem !important;
+  }
+
+  .dn-kicker {
+    font-size: 0.66rem !important;
+    letter-spacing: 1.4px !important;
+  }
+
+  .card-body,
+  .signature-body {
+    padding: 1rem !important;
+  }
+}
