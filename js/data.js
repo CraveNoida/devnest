@@ -55,12 +55,12 @@ export const properties = [
   },
   {
     id: 'prop02',
-    title: 'DevNest 1BHK Apartment',
-    tagline: 'Spacious apartment option at the same DevNest location',
+    title: 'DevNest 1BHK Room 1',
+    tagline: 'Spacious private 1BHK room at the same DevNest location',
     location: contactDetails.locationLabel,
     country: 'India',
     price: 2600,
-    priceNote: '₹2,600-₹2,800 / night',
+    priceNote: '₹2,600 / night',
     rating: 4.94,
     reviewCount: 98,
     images: [
@@ -80,8 +80,8 @@ export const properties = [
     videos: [
       'https://res.cloudinary.com/dhqkxejav/video/upload/v1787855895/video_20260828_000527_p8qt5f.mp4'
     ],
-    description: 'A larger 1BHK stay at the same DevNest Stays location, suited for guests who want a separate bedroom, living area, kitchen convenience, and a little extra room to settle in. Nightly pricing usually ranges from ₹2,600 to ₹2,800 depending on dates and availability.',
-    propertyType: 'Apartment',
+    description: 'A larger 1BHK stay at the same DevNest Stays location, suited for guests who want a separate bedroom, living area, kitchen convenience, and a little extra room to settle in.',
+    propertyType: '1BHK Room',
     bedrooms: 1,
     beds: 2,
     bathrooms: 1,
@@ -90,6 +90,46 @@ export const properties = [
     host: {
       name: 'DevNest Stays',
       avatar: 'photos-videos/2600/WhatsApp Image 2026-08-26 at 10.50.21 PM (1).jpeg',
+      phone: contactDetails.phone,
+      email: contactDetails.email,
+      superhost: true
+    },
+    mapsUrl: contactDetails.mapsUrl,
+    featured: true,
+    availableDates: []
+  },
+  {
+    id: 'prop03',
+    title: 'DevNest 1BHK Room 2',
+    tagline: 'Second private 1BHK room available at the ₹2,600 rate',
+    location: contactDetails.locationLabel,
+    country: 'India',
+    price: 2600,
+    priceNote: '₹2,600 / night',
+    rating: 4.93,
+    reviewCount: 76,
+    images: [
+      'photos-videos/2600-new/0a79bcbc-8cc6-4a18-9759-5daa019c1bd4.jpg',
+      'photos-videos/2600-new/16a928d3-5e3e-4feb-a051-2f53131543a8.jpg',
+      'photos-videos/2600-new/32053acb-688f-4147-9de4-de6fe827ebcc.jpg',
+      'photos-videos/2600-new/64164afb-db44-47c4-b8e6-ab1b1f4c7977.jpg',
+      'photos-videos/2600-new/71005ae4-84b9-4acd-987b-39e8ac7c8c2a.jpg',
+      'photos-videos/2600-new/82c823a8-a9b4-4d06-bdc6-3d76c8a8e6c2.jpg',
+      'photos-videos/2600-new/db36726b-cc0a-4ee1-9fd5-ebea9ffe5d11.jpg'
+    ],
+    videos: [
+      'https://res.cloudinary.com/dhqkxejav/video/upload/v1787855895/video_20260828_000527_p8qt5f.mp4'
+    ],
+    description: 'A second private 1BHK room at the DevNest Stays location for guests who want to choose this exact room while booking. It includes air conditioning, Wi-Fi, kitchen convenience, a clean washroom, and direct host support.',
+    propertyType: '1BHK Room',
+    bedrooms: 1,
+    beds: 1,
+    bathrooms: 1,
+    guests: 4,
+    amenities: ['High-Speed WiFi', 'Air Conditioning', 'Kitchen', 'Smart TV', 'Living Area', 'Refrigerator', 'Hot Water', 'Housekeeping on Request', 'Direct Host Support', 'Google Maps Location'],
+    host: {
+      name: 'DevNest Stays',
+      avatar: 'photos-videos/2600-new/0a79bcbc-8cc6-4a18-9759-5daa019c1bd4.jpg',
       phone: contactDetails.phone,
       email: contactDetails.email,
       superhost: true

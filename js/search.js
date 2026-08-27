@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="empty-state" style="grid-column: 1 / -1;">
           <div class="empty-state-icon">🔍</div>
           <h2>No stays found matching your criteria</h2>
-          <p>Try clearing filters, then choose either the 1RK studio or the 1BHK apartment at the DevNest Stays location.</p>
+          <p>Try clearing filters, then choose the 1RK studio, 1BHK Room 1, or 1BHK Room 2 at the DevNest Stays location.</p>
           <button id="resetFromEmptyBtn" class="btn btn-primary" style="margin-top: 1rem;">Reset All Filters</button>
         </div>
       `;

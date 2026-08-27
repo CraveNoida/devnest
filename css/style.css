@@ -2883,23 +2883,6 @@ body.mobile-menu-open .mobile-menu {
 
 
 /* 20260828 stronger mobile layout fix */
-.price-photo-section {
-  padding: 4rem 0;
-}
-
-.price-photo-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
-}
-
-.price-photo-grid img {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--color-border);
-}
 
 @media (max-width: 768px) {
   html,
@@ -2951,8 +2934,7 @@ body.mobile-menu-open .mobile-menu {
   .footer-grid,
   .review-form-grid,
   .dn-form-grid,
-  .date-inputs,
-  .price-photo-grid {
+  .date-inputs {
     display: grid !important;
     grid-template-columns: 1fr !important;
     width: 100% !important;
@@ -3000,8 +2982,7 @@ body.mobile-menu-open .mobile-menu {
     grid-template-rows: none !important;
   }
 
-  .dn-gallery > div,
-  .price-photo-grid img {
+  .dn-gallery > div img {
     height: auto !important;
     min-height: 0 !important;
   }
@@ -3048,5 +3029,21 @@ body.mobile-menu-open .mobile-menu {
   .card-body,
   .signature-body {
     padding: 1rem !important;
+  }
+}
+
+
+/* 20260828 homepage room-card mobile tightening */
+@media (max-width: 768px) {
+  body.single-location-home main,
+  body.single-location-home section,
+  body.single-location-home .signature-section {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  .signature-grid {
+    gap: 1rem !important;
   }
 }

@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const guestsInput = document.getElementById('homeGuests');
   const estimateEl = document.getElementById('homeBookingEstimate');
   const messageEl = document.getElementById('homeBookingMessage');
+  const requestedRoomId = new URLSearchParams(window.location.search).get('room');
 
   const getSelectedProperty = () => {
     return properties.find(property => property.id === bookingRoom?.value) || properties[0];
@@ -45,6 +46,18 @@ document.addEventListener('DOMContentLoaded', () => {
     "'": '&#39;'
   })[char]);
 
+  const populateBookingRooms = () => {
+    if (!bookingRoom) return;
+    const currentValue = requestedRoomId || bookingRoom.value || properties[0]?.id || '';
+    bookingRoom.innerHTML = properties.map(property => {
+      const label = property.priceNote || `${formatPrice(property.price)} / night`;
+      return `<option value="${escapeHtml(property.id)}">${escapeHtml(property.title)} - ${escapeHtml(label)}</option>`;
+    }).join('');
+    if (properties.some(property => property.id === currentValue)) {
+      bookingRoom.value = currentValue;
+    }
+  };
+
   const updateEstimate = () => {
     if (!estimateEl) return;
     const property = getSelectedProperty();
@@ -66,6 +79,8 @@ document.addEventListener('DOMContentLoaded', () => {
     estimateEl.textContent = `${property.title} · ${nights} night${nights > 1 ? 's' : ''} · ${guests} guest${guests > 1 ? 's' : ''}${surchargeLabel} · Estimated total ${formatPrice(total)}`;
   };
 
+  populateBookingRooms();
+
   // Render initial handpicked stays. HTML fallbacks remain available if JS is blocked.
   if (propertyGrid) {
     propertyGrid.innerHTML = properties.slice(0, 6).map(p => renderPropertyCard(p)).join('');
@@ -73,7 +88,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   document.querySelectorAll('.room-book-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', (event) => {
+      if (location.pathname.endsWith('index.html') || location.pathname === '/' || location.pathname.endsWith('/')) {
+        event.preventDefault();
+      }
       if (bookingRoom && btn.dataset.room) {
         bookingRoom.value = btn.dataset.room;
         updateEstimate();
