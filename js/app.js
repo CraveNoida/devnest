@@ -88,12 +88,30 @@ export function initPageLoader() {
   const loader = document.getElementById('siteLoader');
   if (!loader) return;
 
+  const storageKey = 'devnest_loader_seen';
+  let hasSeenLoader = false;
+
+  try {
+    hasSeenLoader = localStorage.getItem(storageKey) === 'yes';
+  } catch (error) {
+    hasSeenLoader = false;
+  }
+
+  if (hasSeenLoader) {
+    loader.classList.add('is-hidden');
+    return;
+  }
+
   document.body.classList.add('is-loading');
 
   const hideLoader = () => {
     window.setTimeout(() => {
       loader.classList.add('is-hidden');
       document.body.classList.remove('is-loading');
+      try {
+        localStorage.setItem(storageKey, 'yes');
+        document.documentElement.classList.add('loader-seen');
+      } catch (error) {}
     }, 450);
   };
 
@@ -197,7 +215,7 @@ export function renderPropertyCard(property) {
   
   const imgSrc = (property.images && property.images.length > 0) 
     ? property.images[0] 
-    : 'photos-videos/WhatsApp Image 2026-08-26 at 10.50.20 PM.jpeg';
+    : 'photos-videos/2600/WhatsApp Image 2026-08-26 at 10.50.20 PM.jpeg';
 
   const priceLabel = property.priceNote || `${formatPrice(property.price)} / night`;
 
@@ -278,3 +296,4 @@ document.body.addEventListener('click', (e) => {
     }
   }
 });
+

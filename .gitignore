@@ -1,3 +1,9 @@
 .agents/
 .codex/
 *.log
+
+# Local video uploads are served from Cloudinary
+photos-videos/**/*.mp4
+photos-videos/**/*.MP4
+photos-videos/**/*.mov
+photos-videos/**/*.MOV

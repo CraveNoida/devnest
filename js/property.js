@@ -29,6 +29,90 @@ document.addEventListener('DOMContentLoaded', () => {
   renderPropertyDetails(property, propertyPage);
 });
 
+
+function escapeHtml(value) {
+  return String(value || '').replace(/[&<>"']/g, (char) => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;'
+  })[char]);
+}
+
+function getReviewInitials(name) {
+  return String(name || 'Guest')
+    .trim()
+    .split(/\s+/)
+    .slice(0, 2)
+    .map(part => part[0]?.toUpperCase() || '')
+    .join('') || 'G';
+}
+
+function getStoredReviews(propertyId) {
+  try {
+    const reviews = JSON.parse(localStorage.getItem('devnestReviews') || '{}');
+    return Array.isArray(reviews[propertyId]) ? reviews[propertyId] : [];
+  } catch (error) {
+    return [];
+  }
+}
+
+function saveStoredReview(propertyId, review) {
+  let reviews = {};
+  try {
+    reviews = JSON.parse(localStorage.getItem('devnestReviews') || '{}');
+  } catch (error) {
+    reviews = {};
+  }
+  const propertyReviews = Array.isArray(reviews[propertyId]) ? reviews[propertyId] : [];
+  reviews[propertyId] = [review, ...propertyReviews];
+  localStorage.setItem('devnestReviews', JSON.stringify(reviews));
+}
+
+function renderReviewCard(review) {
+  const name = escapeHtml(review.name);
+  const initials = escapeHtml(getReviewInitials(review.name));
+  const stayDate = escapeHtml(review.stayDate || 'Recent stay');
+  const text = escapeHtml(review.text);
+  const rating = Math.min(5, Math.max(1, Number(review.rating) || 5));
+
+  return [
+    '<div class="review-card">',
+    '<div class="review-author">',
+    '<span class="review-avatar" aria-hidden="true">' + initials + '</span>',
+    '<div>',
+    '<strong>' + name + '</strong>',
+    '<div style="font-size: 0.8rem; color: #777;">' + stayDate + ' · ' + '★'.repeat(rating) + '</div>',
+    '</div>',
+    '</div>',
+    '<p class="review-text">"' + text + '"</p>',
+    '</div>'
+  ].join('');
+}
+
+function getDefaultReviews() {
+  return [
+    {
+      name: 'Kunal Verma',
+      stayDate: 'Stayed in August 2026',
+      rating: 5,
+      text: 'Outstanding stay! The apartment is exactly as shown in the photos and video tour. Ultra-clean, super fast WiFi, and the host responded within minutes.'
+    },
+    {
+      name: 'Ananya Sen',
+      stayDate: 'Stayed in July 2026',
+      rating: 5,
+      text: 'Quiet, peaceful, and stylishly decorated. The kitchen was stocked with everything needed. Booking directly was effortless and saved us money.'
+    }
+  ];
+}
+
+function renderReviewsHtml(property) {
+  const reviews = [...getStoredReviews(property.id), ...getDefaultReviews()];
+  return reviews.map(renderReviewCard).join('');
+}
+
 function renderPropertyDetails(property, container) {
   const isSuperhost = property.rating >= 4.9;
   const allAmenities = property.amenities || [];
@@ -38,7 +122,7 @@ function renderPropertyDetails(property, container) {
   
   const images = property.images && property.images.length > 0 
     ? property.images 
-    : ['photos-videos/WhatsApp Image 2026-08-26 at 10.50.20 PM.jpeg'];
+    : ['photos-videos/2600/WhatsApp Image 2026-08-26 at 10.50.20 PM.jpeg'];
 
   // Default dates: tomorrow to day after tomorrow
   const tomorrow = new Date();
@@ -178,28 +262,35 @@ function renderPropertyDetails(property, container) {
             </div>
           </div>
 
-          <div class="reviews-grid">
-            <div class="review-card">
-              <div class="review-author">
-                <img src="https://ui-avatars.com/api/?name=Kunal+Verma&background=0a0a0a&color=fff" alt="Kunal">
-                <div>
-                  <strong>Kunal Verma</strong>
-                  <div style="font-size: 0.8rem; color: #777;">Stayed in August 2026</div>
-                </div>
-              </div>
-              <p class="review-text">"Outstanding stay! The apartment is exactly as shown in the photos and video tour. Ultra-clean, super fast WiFi, and the host responded within minutes."</p>
-            </div>
-            <div class="review-card">
-              <div class="review-author">
-                <img src="https://ui-avatars.com/api/?name=Ananya+Sen&background=0a0a0a&color=fff" alt="Ananya">
-                <div>
-                  <strong>Ananya Sen</strong>
-                  <div style="font-size: 0.8rem; color: #777;">Stayed in July 2026</div>
-                </div>
-              </div>
-              <p class="review-text">"Quiet, peaceful, and stylishly decorated. The kitchen was stocked with everything needed. Booking directly was effortless and saved us money."</p>
-            </div>
+          <div class="reviews-grid" id="reviewsGrid">
+            ${renderReviewsHtml(property)}
           </div>
+
+          <form class="review-form" id="reviewForm" novalidate>
+            <h3>Add your review</h3>
+            <div class="review-form-grid">
+              <div class="form-group">
+                <label class="form-label" for="reviewName">Name</label>
+                <input class="form-input" type="text" id="reviewName" placeholder="Your name" required minlength="2">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="reviewRating">Rating</label>
+                <select class="form-input" id="reviewRating" required>
+                  <option value="5">5 stars</option>
+                  <option value="4">4 stars</option>
+                  <option value="3">3 stars</option>
+                  <option value="2">2 stars</option>
+                  <option value="1">1 star</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="reviewText">Review</label>
+              <textarea class="form-input" id="reviewText" rows="4" placeholder="Share your experience" required minlength="10"></textarea>
+            </div>
+            <button class="btn btn-primary btn-small" type="submit">Submit Review</button>
+            <p class="dn-form-note" id="reviewMessage" aria-live="polite"></p>
+          </form>
         </div>
 
         <!-- Host Direct Contact Section -->
@@ -324,12 +415,15 @@ function renderPropertyDetails(property, container) {
       checkoutInput.value = nextDay.toISOString().split('T')[0];
     }
     
-    const nightlyTotal = property.price * nights;
+    const guests = Math.max(1, Number(guestsInput.value) || 1);
+    const extraGuestFee = Math.max(0, guests - 1) * 500;
+    const guestSurcharge = extraGuestFee * nights;
+    const nightlyTotal = (property.price * nights) + guestSurcharge;
     const cleaningFee = Math.round(property.price * 0.05);
     const taxes = Math.round(nightlyTotal * 0.12);
     const grandTotal = nightlyTotal + cleaningFee + taxes;
     
-    document.getElementById('nightlyCalcLabel').textContent = `${formatPrice(property.price)} × ${nights} night${nights > 1 ? 's' : ''}`;
+    document.getElementById('nightlyCalcLabel').textContent = extraGuestFee ? formatPrice(property.price) + ' + ' + formatPrice(extraGuestFee) + ' extra guest/night × ' + nights + ' night' + (nights > 1 ? 's' : '') : formatPrice(property.price) + ' × ' + nights + ' night' + (nights > 1 ? 's' : '');
     document.getElementById('nightlyTotalVal').textContent = formatPrice(nightlyTotal);
     document.getElementById('cleaningFeeVal').textContent = formatPrice(cleaningFee);
     document.getElementById('taxesFeeVal').textContent = formatPrice(taxes);
@@ -348,6 +442,7 @@ function renderPropertyDetails(property, container) {
   });
 
   checkoutInput.addEventListener('change', updatePricing);
+  guestsInput.addEventListener('change', updatePricing);
 
   reserveBtn.addEventListener('click', () => {
     if (!checkinInput.value || !checkoutInput.value) {
@@ -430,6 +525,41 @@ function renderPropertyDetails(property, container) {
     }
   });
 
+
+  const reviewForm = document.getElementById('reviewForm');
+  if (reviewForm) {
+    reviewForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const nameInput = document.getElementById('reviewName');
+      const ratingInput = document.getElementById('reviewRating');
+      const textInput = document.getElementById('reviewText');
+      const messageEl = document.getElementById('reviewMessage');
+      const name = nameInput.value.trim();
+      const text = textInput.value.trim();
+      const rating = Number(ratingInput.value) || 5;
+
+      if (name.length < 2 || text.length < 10) {
+        messageEl.textContent = 'Please add your name and a review of at least 10 characters.';
+        return;
+      }
+
+      const review = {
+        id: 'review-' + Date.now(),
+        name,
+        rating,
+        text,
+        stayDate: 'Just now',
+        createdAt: new Date().toISOString()
+      };
+      saveStoredReview(property.id, review);
+      document.getElementById('reviewsGrid').insertAdjacentHTML('afterbegin', renderReviewCard(review));
+      reviewForm.reset();
+      ratingInput.value = '5';
+      messageEl.textContent = 'Thanks, your review has been added.';
+      showToast('Review added', 'success');
+    });
+  }
+
   initScrollReveal();
 }
 
@@ -453,3 +583,9 @@ document.getElementById('videoModalClose')?.addEventListener('click', () => {
   }
   modal?.classList.add('hidden');
 });
+
+
+
+
+
+

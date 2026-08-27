@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     hostPropertiesGrid.innerHTML = hostProperties.map(p => {
       const img = (p.images && p.images.length > 0 && p.images[0]) 
         ? p.images[0] 
-        : 'photos-videos/WhatsApp Image 2026-08-26 at 10.50.20 PM.jpeg';
+        : 'photos-videos/2600/WhatsApp Image 2026-08-26 at 10.50.20 PM.jpeg';
       const statusText = p.published !== false ? 'Published' : 'Draft';
       const toggleText = p.published !== false ? 'Unpublish' : 'Publish';
 
@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!isValid) return;
 
     const imagesInput = document.getElementById('propImages').value.trim();
-    const images = imagesInput ? imagesInput.split(',').map(s => s.trim()) : ['photos-videos/WhatsApp Image 2026-08-26 at 10.49.52 PM.jpeg'];
+    const images = imagesInput ? imagesInput.split(',').map(s => s.trim()) : ['photos-videos/2200/WhatsApp Image 2026-08-26 at 10.49.55 PM.jpeg'];
     
     const amenitiesInput = document.getElementById('propAmenities').value.trim();
     const amenities = amenitiesInput ? amenitiesInput.split(',').map(s => s.trim()) : ['High-Speed WiFi', 'Air Conditioning', 'Kitchenette'];
@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
       images,
       host: { 
         name: 'DevNest Host', 
-        avatar: 'photos-videos/WhatsApp Image 2026-08-26 at 10.49.57 PM (1).jpeg',
+        avatar: 'photos-videos/2200/WhatsApp Image 2026-08-26 at 10.49.57 PM (1).jpeg',
         phone: '+91 7042341195',
         email: 'Devneststays@gmail.com'
       },
@@ -199,3 +199,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+

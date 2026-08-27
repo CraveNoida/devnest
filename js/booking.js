@@ -45,16 +45,18 @@ document.addEventListener('DOMContentLoaded', () => {
   
   if (nights <= 0) nights = 1;
   
-  const nightlyTotal = property.price * nights;
+  const extraGuestFee = Math.max(0, guests - 1) * 500;
+  const guestSurcharge = extraGuestFee * nights;
+  const nightlyTotal = (property.price * nights) + guestSurcharge;
   const cleaningFee = Math.round(property.price * 0.05);
   const serviceFee = 0; // Free direct booking
   const taxes = Math.round(nightlyTotal * 0.12);
   const grandTotal = nightlyTotal + cleaningFee + taxes;
   
-  renderBookingForm(property, checkin, checkout, guests, nights, nightlyTotal, cleaningFee, serviceFee, taxes, grandTotal, container);
+  renderBookingForm(property, checkin, checkout, guests, nights, nightlyTotal, cleaningFee, serviceFee, taxes, grandTotal, container, extraGuestFee, guestSurcharge);
 });
 
-function renderBookingForm(property, checkin, checkout, guests, nights, nightlyTotal, cleaningFee, serviceFee, taxes, grandTotal, container) {
+function renderBookingForm(property, checkin, checkout, guests, nights, nightlyTotal, cleaningFee, serviceFee, taxes, grandTotal, container, extraGuestFee = 0, guestSurcharge = 0) {
   const imgSrc = (property.images && property.images.length > 0) ? property.images[0] : '';
   
   container.innerHTML = `
@@ -131,7 +133,7 @@ function renderBookingForm(property, checkin, checkout, guests, nights, nightlyT
           
           <div class="price-breakdown">
             <div class="price-line">
-              <span>${formatPrice(property.price)} × ${nights} night${nights > 1 ? 's' : ''}</span>
+              <span>${extraGuestFee ? `${formatPrice(property.price)} + ${formatPrice(extraGuestFee)} extra guest/night` : formatPrice(property.price)} × ${nights} night${nights > 1 ? 's' : ''}</span>
               <span>${formatPrice(nightlyTotal)}</span>
             </div>
             <div class="price-line">
@@ -197,7 +199,10 @@ function renderBookingForm(property, checkin, checkout, guests, nights, nightlyT
       checkOut: checkout,
       guests: guests,
       nights: nights,
-      pricePerNight: property.price,
+      pricePerNight: property.price + extraGuestFee,
+      basePricePerNight: property.price,
+      extraGuestFeePerNight: extraGuestFee,
+      guestSurcharge: guestSurcharge,
       cleaningFee: cleaningFee,
       serviceFee: serviceFee,
       taxes: taxes,
@@ -280,3 +285,5 @@ function renderConfirmationScreen(booking, property, container) {
     </div>
   `;
 }
+
+

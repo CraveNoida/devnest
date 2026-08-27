@@ -23,15 +23,17 @@ export const properties = [
     rating: 4.96,
     reviewCount: 142,
     images: [
-      'photos-videos/WhatsApp Image 2026-08-26 at 10.49.52 PM.jpeg',
-      'photos-videos/WhatsApp Image 2026-08-26 at 10.49.55 PM.jpeg',
-      'photos-videos/WhatsApp Image 2026-08-26 at 10.49.55 PM (1).jpeg',
-      'photos-videos/WhatsApp Image 2026-08-26 at 10.49.56 PM.jpeg'
+      'photos-videos/2200/WhatsApp Image 2026-08-26 at 10.49.55 PM.jpeg',
+      'photos-videos/2200/WhatsApp Image 2026-08-26 at 10.49.55 PM (1).jpeg',
+      'photos-videos/2200/WhatsApp Image 2026-08-26 at 10.49.56 PM.jpeg',
+      'photos-videos/2200/WhatsApp Image 2026-08-26 at 10.49.56 PM (1).jpeg',
+      'photos-videos/2200/WhatsApp Image 2026-08-26 at 10.49.56 PM (2).jpeg',
+      'photos-videos/2200/WhatsApp Image 2026-08-26 at 10.49.57 PM.jpeg',
+      'photos-videos/2200/WhatsApp Image 2026-08-26 at 10.49.57 PM (1).jpeg',
+      'photos-videos/2200/WhatsApp Image 2026-08-26 at 10.49.57 PM (2).jpeg'
     ],
     videos: [
-      'photos-videos/WhatsApp Video 2026-08-26 at 10.49.54 PM.mp4',
-      'photos-videos/WhatsApp Video 2026-08-26 at 10.49.54 PM (1).mp4',
-      'photos-videos/WhatsApp Video 2026-08-26 at 10.49.55 PM.mp4'
+      'https://res.cloudinary.com/dhqkxejav/video/upload/v1787855895/video_20260828_000527_p8qt5f.mp4'
     ],
     description: 'A private 1RK studio at the DevNest Stays location, prepared for short stays, work trips, and comfortable city breaks. The studio includes a bedroom-style sleeping area, kitchenette, air conditioning, Wi-Fi, a clean washroom, and direct host support for check-in and booking questions.',
     propertyType: 'Studio',
@@ -42,7 +44,7 @@ export const properties = [
     amenities: ['High-Speed WiFi', 'Air Conditioning', 'Kitchenette', 'Smart TV', 'Dedicated Workspace', 'Refrigerator', 'Hot Water', 'Housekeeping on Request', 'Direct Host Support', 'Google Maps Location'],
     host: {
       name: 'DevNest Stays',
-      avatar: 'photos-videos/WhatsApp Image 2026-08-26 at 10.49.57 PM (1).jpeg',
+      avatar: 'photos-videos/2200/WhatsApp Image 2026-08-26 at 10.49.57 PM (1).jpeg',
       phone: contactDetails.phone,
       email: contactDetails.email,
       superhost: true
@@ -62,15 +64,28 @@ export const properties = [
     rating: 4.94,
     reviewCount: 98,
     images: [
-      'photos-videos/WhatsApp Image 2026-08-26 at 10.50.19 PM.jpeg',
-      'photos-videos/WhatsApp Image 2026-08-26 at 10.50.19 PM (1).jpeg',
-      'photos-videos/WhatsApp Image 2026-08-26 at 10.50.19 PM (2).jpeg',
-      'photos-videos/WhatsApp Image 2026-08-26 at 10.50.20 PM.jpeg',
-      'photos-videos/WhatsApp Image 2026-08-26 at 10.50.20 PM (1).jpeg',
-      'photos-videos/WhatsApp Image 2026-08-26 at 10.50.20 PM (2).jpeg'
+      'photos-videos/2600/WhatsApp Image 2026-08-26 at 10.50.19 PM.jpeg',
+      'photos-videos/2600/WhatsApp Image 2026-08-26 at 10.50.19 PM (1).jpeg',
+      'photos-videos/2600/WhatsApp Image 2026-08-26 at 10.50.19 PM (2).jpeg',
+      'photos-videos/2600/WhatsApp Image 2026-08-26 at 10.50.20 PM.jpeg',
+      'photos-videos/2600/WhatsApp Image 2026-08-26 at 10.50.20 PM (1).jpeg',
+      'photos-videos/2600/WhatsApp Image 2026-08-26 at 10.50.20 PM (2).jpeg',
+      'photos-videos/2600/WhatsApp Image 2026-08-26 at 10.50.20 PM (3).jpeg',
+      'photos-videos/2600/WhatsApp Image 2026-08-26 at 10.50.21 PM.jpeg',
+      'photos-videos/2600/WhatsApp Image 2026-08-26 at 10.50.21 PM (1).jpeg',
+      'photos-videos/2600/WhatsApp Image 2026-08-26 at 10.50.21 PM (2).jpeg',
+      'photos-videos/2600/WhatsApp Image 2026-08-26 at 10.50.21 PM (3).jpeg',
+      'photos-videos/2600/WhatsApp Image 2026-08-26 at 10.50.22 PM.jpeg',
+      'photos-videos/2600/0a79bcbc-8cc6-4a18-9759-5daa019c1bd4.jpg',
+      'photos-videos/2600/16a928d3-5e3e-4feb-a051-2f53131543a8.jpg',
+      'photos-videos/2600/32053acb-688f-4147-9de4-de6fe827ebcc.jpg',
+      'photos-videos/2600/64164afb-db44-47c4-b8e6-ab1b1f4c7977.jpg',
+      'photos-videos/2600/71005ae4-84b9-4acd-987b-39e8ac7c8c2a.jpg',
+      'photos-videos/2600/82c823a8-a9b4-4d06-bdc6-3d76c8a8e6c2.jpg',
+      'photos-videos/2600/db36726b-cc0a-4ee1-9fd5-ebea9ffe5d11.jpg'
     ],
     videos: [
-      'photos-videos/WhatsApp Video 2026-08-26 at 10.49.54 PM.mp4'
+      'https://res.cloudinary.com/dhqkxejav/video/upload/v1787855895/video_20260828_000527_p8qt5f.mp4'
     ],
     description: 'A larger 1BHK stay at the same DevNest Stays location, suited for guests who want a separate bedroom, living area, kitchen convenience, and a little extra room to settle in. Nightly pricing usually ranges from ₹2,600 to ₹2,800 depending on dates and availability.',
     propertyType: 'Apartment',
@@ -81,7 +96,7 @@ export const properties = [
     amenities: ['High-Speed WiFi', 'Air Conditioning', 'Full Kitchen', 'Smart TV', 'Living Area', 'Refrigerator', 'Hot Water', 'Housekeeping on Request', 'Direct Host Support', 'Google Maps Location'],
     host: {
       name: 'DevNest Stays',
-      avatar: 'photos-videos/WhatsApp Image 2026-08-26 at 10.50.21 PM (1).jpeg',
+      avatar: 'photos-videos/2600/WhatsApp Image 2026-08-26 at 10.50.21 PM (1).jpeg',
       phone: contactDetails.phone,
       email: contactDetails.email,
       superhost: true
@@ -108,3 +123,5 @@ export function getAllProperties() {
   }
   return base;
 }
+
+

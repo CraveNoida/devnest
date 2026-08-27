@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const checkoutStr = b.checkout || b.checkOut;
       const total = b.totalAmount || b.totalPrice;
       const bId = b.bookingId || b.id;
-      const img = b.propertyImage || 'photos-videos/WhatsApp Image 2026-08-26 at 10.50.20 PM.jpeg';
+      const img = b.propertyImage || 'photos-videos/2600/WhatsApp Image 2026-08-26 at 10.50.20 PM.jpeg';
 
       const whatsappText = encodeURIComponent(
         `Hi DevNest Stays, I'm reaching out regarding my booking ${bId} for ${b.propertyTitle} (${formatDate(checkinStr)}).`
@@ -134,3 +134,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
   renderTrips('upcoming');
 });
+

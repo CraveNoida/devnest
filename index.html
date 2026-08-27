@@ -5,13 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DevNest Stays - Private 1RK & 1BHK</title>
   <meta name="description" content="Book DevNest Stays at one verified location. Choose a private 1RK studio from ₹2,200/night or a 1BHK apartment from ₹2,600-₹2,800/night.">
-  <script>document.documentElement.classList.add('js');</script>
+  <script>
+    document.documentElement.classList.add('js');
+    try {
+      if (localStorage.getItem('devnest_loader_seen') === 'yes') {
+        document.documentElement.classList.add('loader-seen');
+      }
+    } catch (error) {}
+  </script>
   <link rel="stylesheet" href="css/style.css?v=20260827-motion">
   <link rel="stylesheet" href="css/responsive.css?v=20260827-motion">
 </head>
 <body class="single-location-home">
   <div class="site-loader" id="siteLoader" role="status" aria-live="polite" aria-label="Loading DevNest Stays">
     <div class="site-loader-card">
+      <span class="loader-mark" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </span>
       <span class="loader-brand">DevNest Stays</span>
       <span class="loader-line"></span>
       <span class="loader-copy">Preparing your stay</span>
@@ -56,7 +66,7 @@
   <main>
     <section class="dn-hero">
       <div class="dn-hero-media" aria-hidden="true">
-        <img src="photos-videos/WhatsApp Image 2026-08-26 at 10.50.19 PM.jpeg" alt="">
+        <img src="photos-videos/2600/WhatsApp Image 2026-08-26 at 10.50.19 PM.jpeg" alt="">
       </div>
       <div class="container dn-hero-inner reveal">
         <span class="dn-kicker">DevNest Stays - Direct Booking</span>
@@ -91,16 +101,16 @@
 
     <section class="container dn-gallery reveal">
       <div class="dn-gallery-large">
-        <img src="photos-videos/WhatsApp Image 2026-08-26 at 10.49.55 PM.jpeg" alt="DevNest 1RK room">
+        <img src="photos-videos/2200/WhatsApp Image 2026-08-26 at 10.49.55 PM.jpeg" alt="DevNest 1RK room">
       </div>
       <div>
-        <img src="photos-videos/WhatsApp Image 2026-08-26 at 10.50.19 PM (1).jpeg" alt="DevNest 1BHK living area">
+        <img src="photos-videos/2600/WhatsApp Image 2026-08-26 at 10.50.19 PM (1).jpeg" alt="DevNest 1BHK living area">
       </div>
       <div>
-        <img src="photos-videos/WhatsApp Image 2026-08-26 at 10.50.20 PM.jpeg" alt="DevNest apartment detail">
+        <img src="photos-videos/2600/WhatsApp Image 2026-08-26 at 10.50.20 PM.jpeg" alt="DevNest apartment detail">
       </div>
       <div class="dn-video-tile">
-        <button onclick="openVideoModal('photos-videos/WhatsApp Video 2026-08-26 at 10.49.54 PM.mp4', 'DevNest Stays Video Tour')">Play Video Tour</button>
+        <button onclick="openVideoModal('https://res.cloudinary.com/dhqkxejav/video/upload/v1787855895/video_20260828_000527_p8qt5f.mp4', 'DevNest Stays Video Tour')">Play Video Tour</button>
       </div>
     </section>
 
@@ -118,7 +128,7 @@
           <article class="card" data-id="prop01">
             <div class="card-img-wrap">
               <a href="property.html?id=prop01">
-                <img src="photos-videos/WhatsApp Image 2026-08-26 at 10.49.52 PM.jpeg" alt="DevNest 1RK Studio" class="card-img" loading="lazy">
+                <img src="photos-videos/2200/WhatsApp Image 2026-08-26 at 10.49.55 PM.jpeg" alt="DevNest 1RK Studio" class="card-img" loading="lazy">
               </a>
               <span class="superhost-badge">Superhost</span>
             </div>
@@ -135,7 +145,7 @@
           <article class="card" data-id="prop02">
             <div class="card-img-wrap">
               <a href="property.html?id=prop02">
-                <img src="photos-videos/WhatsApp Image 2026-08-26 at 10.50.19 PM.jpeg" alt="DevNest 1BHK Apartment" class="card-img" loading="lazy">
+                <img src="photos-videos/2600/WhatsApp Image 2026-08-26 at 10.50.19 PM.jpeg" alt="DevNest 1BHK Apartment" class="card-img" loading="lazy">
               </a>
               <span class="superhost-badge">Superhost</span>
             </div>
@@ -325,3 +335,4 @@
   </script>
 </body>
 </html>
+

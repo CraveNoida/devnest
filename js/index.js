@@ -56,11 +56,14 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    const nightlyTotal = property.price * nights;
+    const extraGuestFee = Math.max(0, guests - 1) * 500;
+    const guestSurcharge = extraGuestFee * nights;
+    const nightlyTotal = (property.price * nights) + guestSurcharge;
     const cleaningFee = Math.round(property.price * 0.05);
     const taxes = Math.round(nightlyTotal * 0.12);
     const total = nightlyTotal + cleaningFee + taxes;
-    estimateEl.textContent = `${property.title} · ${nights} night${nights > 1 ? 's' : ''} · ${guests} guest${guests > 1 ? 's' : ''} · Estimated total ${formatPrice(total)}`;
+    const surchargeLabel = guestSurcharge ? ` · Extra guest fee ${formatPrice(guestSurcharge)}` : '';
+    estimateEl.textContent = `${property.title} · ${nights} night${nights > 1 ? 's' : ''} · ${guests} guest${guests > 1 ? 's' : ''}${surchargeLabel} · Estimated total ${formatPrice(total)}`;
   };
 
   // Render initial handpicked stays. HTML fallbacks remain available if JS is blocked.
@@ -128,7 +131,9 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      const nightlyTotal = property.price * nights;
+      const extraGuestFee = Math.max(0, guests - 1) * 500;
+      const guestSurcharge = extraGuestFee * nights;
+      const nightlyTotal = (property.price * nights) + guestSurcharge;
       const cleaningFee = Math.round(property.price * 0.05);
       const serviceFee = 0;
       const taxes = Math.round(nightlyTotal * 0.12);
@@ -151,7 +156,10 @@ document.addEventListener('DOMContentLoaded', () => {
         guestPhone,
         guestEmail,
         specialRequests: notes,
-        pricePerNight: property.price,
+        pricePerNight: property.price + extraGuestFee,
+        basePricePerNight: property.price,
+        extraGuestFeePerNight: extraGuestFee,
+        guestSurcharge,
         cleaningFee,
         serviceFee,
         taxes,
@@ -222,3 +230,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Legacy marketplace filters are intentionally absent on the refreshed homepage.
 });
+
+
+
