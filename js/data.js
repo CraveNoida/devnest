@@ -75,14 +75,7 @@ export const properties = [
       'photos-videos/2600/WhatsApp Image 2026-08-26 at 10.50.21 PM (1).jpeg',
       'photos-videos/2600/WhatsApp Image 2026-08-26 at 10.50.21 PM (2).jpeg',
       'photos-videos/2600/WhatsApp Image 2026-08-26 at 10.50.21 PM (3).jpeg',
-      'photos-videos/2600/WhatsApp Image 2026-08-26 at 10.50.22 PM.jpeg',
-      'photos-videos/2600/0a79bcbc-8cc6-4a18-9759-5daa019c1bd4.jpg',
-      'photos-videos/2600/16a928d3-5e3e-4feb-a051-2f53131543a8.jpg',
-      'photos-videos/2600/32053acb-688f-4147-9de4-de6fe827ebcc.jpg',
-      'photos-videos/2600/64164afb-db44-47c4-b8e6-ab1b1f4c7977.jpg',
-      'photos-videos/2600/71005ae4-84b9-4acd-987b-39e8ac7c8c2a.jpg',
-      'photos-videos/2600/82c823a8-a9b4-4d06-bdc6-3d76c8a8e6c2.jpg',
-      'photos-videos/2600/db36726b-cc0a-4ee1-9fd5-ebea9ffe5d11.jpg'
+      'photos-videos/2600/WhatsApp Image 2026-08-26 at 10.50.22 PM.jpeg'
     ],
     videos: [
       'https://res.cloudinary.com/dhqkxejav/video/upload/v1787855895/video_20260828_000527_p8qt5f.mp4'
@@ -123,5 +116,8 @@ export function getAllProperties() {
   }
   return base;
 }
+
+
+
 
 
