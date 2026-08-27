@@ -87,17 +87,34 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollReveal();
   }
 
+  const scrollToBookingForm = () => {
+    const target = document.getElementById('booking');
+    if (!target) return;
+    const header = document.querySelector('header');
+    const headerOffset = header ? header.offsetHeight + 12 : 12;
+    const targetTop = target.getBoundingClientRect().top + window.scrollY - headerOffset;
+    window.scrollTo({ top: Math.max(0, targetTop), behavior: 'auto' });
+    window.setTimeout(() => bookingRoom?.focus({ preventScroll: true }), 80);
+  };
+
   document.querySelectorAll('.room-book-btn').forEach(btn => {
     btn.addEventListener('click', (event) => {
-      if (location.pathname.endsWith('index.html') || location.pathname === '/' || location.pathname.endsWith('/')) {
+      const isHomePage = location.pathname.endsWith('index.html') || location.pathname === '/' || location.pathname.endsWith('/');
+      if (isHomePage) {
         event.preventDefault();
-      }
-      if (bookingRoom && btn.dataset.room) {
-        bookingRoom.value = btn.dataset.room;
-        updateEstimate();
+        if (bookingRoom && btn.dataset.room) {
+          bookingRoom.value = btn.dataset.room;
+          updateEstimate();
+        }
+        scrollToBookingForm();
       }
     });
   });
+
+  if (requestedRoomId && properties.some(property => property.id === requestedRoomId)) {
+    updateEstimate();
+    window.setTimeout(scrollToBookingForm, 120);
+  }
 
   [bookingRoom, checkinInput, checkoutInput, guestsInput].forEach(input => {
     input?.addEventListener('input', updateEstimate);

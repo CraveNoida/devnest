@@ -3047,3 +3047,56 @@ body.mobile-menu-open .mobile-menu {
     gap: 1rem !important;
   }
 }
+
+/* 20260828 scroll performance and booking anchor fix */
+html {
+  scroll-padding-top: 96px;
+}
+
+@media (max-width: 768px) {
+  html {
+    scroll-behavior: auto !important;
+    scroll-padding-top: 72px;
+  }
+
+  body {
+    overscroll-behavior-y: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  header {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  .js .reveal,
+  .reveal.visible,
+  .reveal.visible .card,
+  .reveal.visible .dn-booking-form,
+  .reveal.visible .dn-booking-copy,
+  .dn-hero-media img,
+  .card,
+  .card-img,
+  .btn,
+  .floating-whatsapp {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .js .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .card:hover,
+  .card:hover .card-img,
+  .btn:hover,
+  .floating-whatsapp:hover,
+  .dn-video-tile button:hover {
+    transform: none !important;
+  }
+
+  .dn-hero-media img {
+    transform: none !important;
+  }
+}
