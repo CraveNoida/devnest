@@ -2870,3 +2870,13 @@ body.mobile-menu-open .mobile-menu {
   justify-content: center;
 }
 
+
+.bottom-review-section {
+  padding: 3rem 0 4rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.bottom-review-section .section-header {
+  margin-bottom: 1.25rem;
+}
+

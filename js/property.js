@@ -166,7 +166,7 @@ function renderPropertyDetails(property, container) {
         </div>
         <div class="property-meta-actions">
           ${videoButtonHtml}
-          <a class="action-btn" href="#reviews" id="addReviewTopBtn">
+          <a class="action-btn" href="#submit-review" id="addReviewTopBtn">
             Add Review
           </a>
           <button class="action-btn" id="shareStayBtn">
@@ -269,31 +269,7 @@ function renderPropertyDetails(property, container) {
             ${renderReviewsHtml(property)}
           </div>
 
-          <form class="review-form" id="reviewForm" novalidate>
-            <h3>Add your review</h3>
-            <div class="review-form-grid">
-              <div class="form-group">
-                <label class="form-label" for="reviewName">Name</label>
-                <input class="form-input" type="text" id="reviewName" placeholder="Your name" required minlength="2">
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="reviewRating">Rating</label>
-                <select class="form-input" id="reviewRating" required>
-                  <option value="5">5 stars</option>
-                  <option value="4">4 stars</option>
-                  <option value="3">3 stars</option>
-                  <option value="2">2 stars</option>
-                  <option value="1">1 star</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="reviewText">Review</label>
-              <textarea class="form-input" id="reviewText" rows="4" placeholder="Share your experience" required minlength="10"></textarea>
-            </div>
-            <button class="btn btn-primary btn-small" type="submit">Submit Review</button>
-            <p class="dn-form-note" id="reviewMessage" aria-live="polite"></p>
-          </form>
+
         </div>
 
         <!-- Host Direct Contact Section -->
@@ -388,6 +364,39 @@ function renderPropertyDetails(property, container) {
       <h2 style="font-family: var(--font-serif); font-size: 2rem; margin-bottom: 1.5rem;">Other Option at This Location</h2>
       <div class="property-grid" id="recommendationsGrid"></div>
     </div>
+    <section class="bottom-review-section" id="submit-review">
+      <div class="section-header">
+        <div>
+          <span class="section-tagline">Guest feedback</span>
+          <h2 class="section-title">Submit a review</h2>
+        </div>
+      </div>
+      <form class="review-form" id="reviewForm" novalidate>
+        <h3>Add your review</h3>
+        <div class="review-form-grid">
+          <div class="form-group">
+            <label class="form-label" for="reviewName">Name</label>
+            <input class="form-input" type="text" id="reviewName" placeholder="Your name" required minlength="2">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="reviewRating">Rating</label>
+            <select class="form-input" id="reviewRating" required>
+              <option value="5">5 stars</option>
+              <option value="4">4 stars</option>
+              <option value="3">3 stars</option>
+              <option value="2">2 stars</option>
+              <option value="1">1 star</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="reviewText">Review</label>
+          <textarea class="form-input" id="reviewText" rows="4" placeholder="Share your experience" required minlength="10"></textarea>
+        </div>
+        <button class="btn btn-primary btn-small" type="submit">Submit Review</button>
+        <p class="dn-form-note" id="reviewMessage" aria-live="polite"></p>
+      </form>
+    </section>
   `;
 
   // Render similar recommendations
@@ -586,6 +595,9 @@ document.getElementById('videoModalClose')?.addEventListener('click', () => {
   }
   modal?.classList.add('hidden');
 });
+
+
+
 
 
 
